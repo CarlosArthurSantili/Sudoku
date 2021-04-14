@@ -11,6 +11,44 @@ namespace Sudoku.ConsoleApp
     {
         static void Main(string[] args)
         {
+            /*Exemplo de Erro Linha
+            string sudoku = @"1 3 2 5 7 9 4 6 5
+                              4 9 8 2 6 1 3 7 8
+                              7 5 6 3 8 4 2 1 9
+                              6 4 3 1 5 8 7 9 2
+                              5 2 1 7 9 3 8 4 6
+                              9 8 7 4 2 6 5 3 1
+                              2 1 4 9 3 5 6 8 7
+                              3 6 5 8 1 7 9 2 4
+                              8 7 9 6 4 2 1 5 3";
+            */
+
+            /*Exemplo de Erro Coluna
+            string sudoku = @"1 3 2 5 7 9 4 6 8
+                              9 4 8 2 6 1 3 7 5
+                              7 5 6 3 8 4 2 1 9
+                              6 4 3 1 5 8 7 9 2
+                              5 2 1 7 9 3 8 4 6
+                              9 8 7 4 2 6 5 3 1
+                              2 1 4 9 3 5 6 8 7
+                              3 6 5 8 1 7 9 2 4
+                              8 7 9 6 4 2 1 5 3";
+            */
+
+
+            /*Exemplo de Erro Area
+            string sudoku = @"1 3 2 5 7 9 4 6 8
+                              4 9 8 2 6 1 3 7 5
+                              7 5 6 3 8 4 2 1 9
+                              6 4 3 1 5 8 7 9 2
+                              5 2 1 7 9 3 8 4 6
+                              2 1 4 9 3 5 6 8 7
+                              9 8 7 4 2 6 5 3 1
+                              3 6 5 8 1 7 9 2 4
+                              8 7 9 6 4 2 1 5 3";
+            */
+
+            ///* Original
             string sudoku = @"1 3 2 5 7 9 4 6 8
                               4 9 8 2 6 1 3 7 5
                               7 5 6 3 8 4 2 1 9
@@ -20,7 +58,7 @@ namespace Sudoku.ConsoleApp
                               2 1 4 9 3 5 6 8 7
                               3 6 5 8 1 7 9 2 4
                               8 7 9 6 4 2 1 5 3";
-
+            //*/
 
             bool sudokuValido = ValidarSudoku(sudoku);
 
@@ -140,7 +178,10 @@ namespace Sudoku.ConsoleApp
                 }
                 
             }
-
+            if (sudokuValido == false)
+            {
+                return sudokuValido;
+            }
 
             //checar as colunas
             int c = 0;
@@ -190,9 +231,13 @@ namespace Sudoku.ConsoleApp
                 }
 
             }
+            if (sudokuValido == false)
+            {
+                return sudokuValido;
+            }
 
 
-            
+
             //checar as areas 
             int a = 0;
             for (int linha = 0; linha < 9; linha++)
